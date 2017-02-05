@@ -7,9 +7,16 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 import App from './app/App.jsx'
 import configureStore from './app/redux/store'
 
+import sagaMiddleware from '/client/app/redux/middlewares/sagaMiddleware'
+import rootSaga from '/client/app/modules/login/actions'
+
 injectTapEventPlugin()
 
 const store = configureStore()
+
+sagaMiddleware.run(rootSaga)
+
+// const action = type => store.dispatch({type})
 
 const history = syncHistoryWithStore(browserHistory, store)
 

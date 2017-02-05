@@ -1,7 +1,5 @@
 import createSagaMiddleware from 'redux-saga'
 
-import { mySaga } from '/client/app/modules/login/actions';
-
-const sagaMiddleware = createSagaMiddleware(mySaga)
+const sagaMiddleware = createSagaMiddleware()
 
 export default sagaMiddleware

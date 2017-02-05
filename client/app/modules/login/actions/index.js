@@ -1,6 +1,5 @@
 import { Meteor } from 'meteor/meteor'
-import { takeEvery } from 'redux-saga'
-import { call, put } from 'redux-saga/effects'
+import { call, put, takeEvery } from 'redux-saga/effects'
 
 export function* addTodo(action) {
    try {
@@ -12,7 +11,13 @@ export function* addTodo(action) {
 }
 
 export function* mySaga() {
-  yield* takeEvery('ADD_TODO', addTodo);
+  yield takeEvery('ADD_TODO', addTodo);
+}
+
+export default function* rootSaga() {
+  yield [
+    mySaga()
+  ]
 }
 
 export const addedTodo = () => {
